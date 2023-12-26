@@ -1,0 +1,26 @@
+﻿
+@model IEnumerable<CoffeeShop.Models.AksesuarUrunModel>
+
+@foreach (var urun in Model)
+{
+
+    <div class="col">
+        <div class="card">
+            <img src="~/Upload/@urun.Resim" class="card-img-top" alt="@urun.urunName">
+            <div class="card-body">
+                <h5 class="card-title">@urun.urunName</h5>
+                <p class="card-text pt-2 description">
+                    @urun.urunAciklama
+                </p>
+                <p class="card-text">
+                    <i class="fa fa-try" aria-hidden="true"></i>
+                    @urun.urunFiyat.ToString("C")
+                </p>
+               
+                <a href="/Home/AksesuarDetay/@urun.urunId" class="btn btn-secondary">Ürünü incele</a>
+            </div>
+        </div>
+    </div>
+
+
+}

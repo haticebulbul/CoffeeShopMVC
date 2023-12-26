@@ -1,0 +1,168 @@
+﻿@*@model CoffeeShop.Models.Cart
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <div class="container">
+        <div class="row" style="align-items: center;">
+            <div class="col">
+                <h3>Alışveriş Sepeti</h3>
+                <hr>
+                @if (Model.CartLines.Any())
+                {
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Adet</th>
+                                <th>Ürünün Adı</th>
+                                <th>Fiyat</th>
+                                <th>Ara Toplam</th>
+                                <th> </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.CartLines)
+                            {
+                                <tr>
+                                    <td>
+                                        <img src="~/Upload/@(item.Urun != null ? item.Urun.Resim : (item.AksesuarUrun != null ? item.AksesuarUrun.Resim : ""))" width="50" />
+                                    </td>
+                                    <td>
+                                        @item.Quantity
+                                    </td>
+                                    <td>
+                                        @if (item.Urun != null)
+                                        {
+                                            @item.Urun.urunName
+                                        }
+                                        else if (item.AksesuarUrun != null)
+                                        {
+                                            @item.AksesuarUrun.UrunName
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (item.Urun != null)
+                                        {
+                                            @item.Urun.urunFiyat
+                                        }
+                                        else if (item.AksesuarUrun != null)
+                                        {
+                                            @item.AksesuarUrun.urunFiyat
+                                        }
+                                    </td>
+                                    <td>
+                                        @((item.Quantity * (item.Urun != null ? item.Urun.urunFiyat : (item.AksesuarUrun != null ? item.AksesuarUrun.urunFiyat : 0))).ToString("c"));
+                                    </td>
+                                    <td>
+                                       @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                                        {
+                                           @Html.Hidden("urunId", item.Urun != null ? item.Urun.urunId : (item.AksesuarUrun != null ? item.AksesuarUrun.urunId : 0));
+                                            <input type="submit" class="btn btn-outline-danger" value="Sil" />
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5">
+                                </td>
+                                <td>
+                                    @Model.Total().ToString("c")
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                }
+                else
+                {
+                    <p>Sepetiniz boş.</p>
+                }
+            </div>
+        </div>
+    </div>*@
+@model CoffeeShop.Models.Cart
+@{
+    ViewBag.Title = "Coffee Factory";
+}
+
+<div class="container">
+    <div class="row" style="align-items: center;">
+        <div class="col">
+            <h3>Alışveriş Sepeti</h3>
+            <hr>
+            @if (Model.CartLines.Any())
+            {
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Adet</th>
+                            <th>Ürünün Adı</th>
+                            <th>Fiyat</th>
+                            <th>Ara Toplam</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.CartLines)
+                        {
+                            <tr>
+                                <td>
+                                    <img src="~/Upload/@(item.Urun != null ? item.Urun.Resim : (item.AksesuarUrun != null ? item.AksesuarUrun.Resim : ""))" width="50" />
+                                </td>
+                                <td>
+                                    @item.Quantity
+                                </td>
+                                <td>
+                                    @if (item.Urun != null)
+                                    {
+                                        @item.Urun.urunName
+                                    }
+                                    else if (item.AksesuarUrun != null)
+                                    {
+                                        @item.AksesuarUrun.UrunName
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.Urun != null)
+                                    {
+                                        @item.Urun.urunFiyat
+                                    }
+                                    else if (item.AksesuarUrun != null)
+                                    {
+                                        @item.AksesuarUrun.urunFiyat
+                                    }
+                                </td>
+                                <td>
+                                    @((item.Quantity * (item.Urun != null ? item.Urun.urunFiyat : (item.AksesuarUrun != null ? item.AksesuarUrun.urunFiyat : 0))).ToString("c"));
+                                </td>
+                                <td>
+                                    @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                                    {
+                                        @Html.Hidden("urunId", item.Urun != null ? item.Urun.urunId : (item.AksesuarUrun != null ? item.AksesuarUrun.urunId : 0));
+                                        <input type="submit" class="btn btn-outline-danger" value="Sil" />
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5">
+                            </td>
+                            <td>
+                                @Model.Total().ToString("c")
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            }
+            else
+            {
+                <p>Sepetiniz boş.</p>
+            }
+        </div>
+    </div>
+</div>

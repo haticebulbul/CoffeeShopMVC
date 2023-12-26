@@ -1,0 +1,30 @@
+﻿
+@model IEnumerable<CoffeeShop.Models.Hakkimizda>
+@{
+    ViewBag.Title = "Coffee Factory";
+}
+
+
+<div class="bd-example">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th class="table-active" scope="col">Link</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var hakkimizda in Model)
+            {
+                <tr>
+                    <td> <a href="@hakkimizda.link">@hakkimizda.link</a></td>
+
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>
+
+
+

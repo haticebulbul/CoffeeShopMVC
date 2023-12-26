@@ -1,0 +1,53 @@
+﻿@model IEnumerable<CoffeeShop.Entity.Kategori>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .table-hover tbody tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    .btn-group .btn {
+        margin-right: 5px;
+    }
+</style>
+
+<div class="container pb-5">
+    <div class="row">
+        <h3 class="my-4">Kahve Kategori Listesi</h3>
+        <p>
+            @Html.ActionLink("Yeni Kategori Oluştur", "Create", null, new { @class = "btn btn-primary" })
+        </p>
+    </div>
+
+    <div class="row">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Kategori Adı</th>
+                    <th scope="col">Açıklama</th>
+                    <th scope="col">İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.kategoriName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Aciklama)</td>
+                        <td>
+                            <div class="btn-group">
+                                @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }, new { @class = "btn btn-info btn-sm" })
+                                @Html.ActionLink("Detaylar", "Details", new { id = item.Id }, new { @class = "btn btn-success btn-sm" })
+                                @Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-sm", onclick = "return confirm('Silmek istediğinize emin misiniz?');" })
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<CoffeeShop.Models.UrunModel>
+<style>
+    .card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: box-shadow 0.3s;
+    }
+    .card:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+    .card-body {
+        padding: 20px;
+    }
+
+    .card-title {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .description {
+        color: #555;
+        margin-bottom: 15px;
+    }
+
+    .card-text i {
+        color: #1a8cff; 
+        margin-right: 5px;
+    }
+
+    .btn-secondary {
+        background-color: chocolate;
+        color: #fff;
+    }
+     .btn-secondary:hover {
+            background-color:saddlebrown;
+        }
+    body {
+        background-color: antiquewhite;
+    }
+</style>
+
+@foreach (var urun in Model)
+{
+    <div class="col">
+        <div class="card">
+            <img src="~/Upload/@urun.Resim" class="card-img-top" alt="@urun.urunName">
+            <div class="card-body">
+                <h5 class="card-title">@urun.urunName</h5>
+                <p class="card-text pt-2 description">
+                    @urun.urunAciklama
+                </p>
+                <p class="card-text">
+                    <i class="fa fa-try" aria-hidden="true"></i>
+                    @urun.urunFiyat.ToString("C")
+                </p>
+
+                <a href="/Home/Detay/@urun.urunId" class="btn btn-secondary">Ürünü incele</a>
+            </div>
+        </div>
+    </div>
+}

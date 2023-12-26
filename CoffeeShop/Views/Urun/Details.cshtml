@@ -1,0 +1,120 @@
+﻿@model CoffeeShop.Entity.Urun
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .details-container {
+        width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    .dl-horizontal {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+        .dl-horizontal dt {
+            flex: 0 0 30%; /* Adjust as needed */
+            text-align: right;
+            margin-right: 20px;
+        }
+
+        .dl-horizontal dd {
+            flex: 0 0 65%; /* Adjust as needed */
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px; /* Adjust as needed */
+            text-align: center; /* Center-align the text within dd */
+        }
+
+    .action-buttons {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+        .action-buttons a {
+            margin-right: 10px;
+        }
+</style>
+
+
+
+<div class="container-fluid">
+    <div class="details-container">
+        <h2>Details</h2>
+
+        <div>
+            <h4>Urun</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    Kategori İsmi:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.kategori.kategoriName)
+                </dd>
+
+                <dt>
+                    Ürün İsmi:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.urunName)
+                </dd>
+
+                <dt>
+                    Ürün Türü:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.urunType)
+                </dd>
+
+                <dt>
+                    Ürün Açıklaması:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.urunAciklama)
+                </dd>
+
+                <dt>
+                    Ürün Fiyatı:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.urunFiyat)
+                </dd>
+
+                <dt>
+                    Ürün Stok Sayısı:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.urunStok)
+                </dd>
+
+                <dt>
+                    Ürün Görseli:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Resim)
+                </dd>
+            </dl>
+        </div>
+        <div class="action-buttons">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.urunId }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Kategori Listesine Geri Dön", "Index", null, new { @class = "btn btn-warning" })
+        </div>
+
+    </div>
+</div>

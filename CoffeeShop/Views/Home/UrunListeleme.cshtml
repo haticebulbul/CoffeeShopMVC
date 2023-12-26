@@ -1,0 +1,63 @@
+﻿@using CoffeeShop.Entity;
+@model List<CoffeeShop.Models.AksesuarUrunModel>
+@{
+    ViewBag.Title = "Listeleme";
+}
+<style>
+    .card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: box-shadow 0.3s;
+    }
+
+        .card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+        }
+
+
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .card-title {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .description {
+        color: #555;
+        margin-bottom: 15px;
+    }
+
+    .card-text i {
+        color: #1a8cff; 
+        margin-right: 5px;
+    }
+
+    .btn-secondary {
+        background-color: chocolate;
+        color: #fff;
+    }
+
+        .btn-secondary:hover {
+            background-color: saddlebrown;
+        }
+
+        body {
+            background-color: antiquewhite;
+        }
+</style>
+
+
+
+
+
+    <div class="row row-cols-1 row-cols-md-3 g-4 p-4">
+        @Html.Partial("_AksesuarUrunList", Model)
+
+
+    </div>
+  

@@ -1,0 +1,14 @@
+﻿@model  IEnumerable<CoffeeShop.Entity.AksesuarKategori>
+@foreach (var item in Model)
+{
+    <div class="p-5 mb-4 bg-light rounded-3 mt-4 ml-4 mr-4 ">
+        <div class="container-fluid py-5 ">
+            <h1 class="display-5 fw-bold" style="text-align:left;">@item.kategoriName</h1>
+            <p class="col-md-8 fs-4">@item.Aciklama</p>
+
+            <a href="/home/urunlisteleme/@item.AksesuarKategorId" class="btn btn-secondary">Ürünü inceleyin</a>
+
+        </div>
+    </div>
+
+}

@@ -1,0 +1,73 @@
+﻿@model CoffeeShop.Models.Login
+@{
+    ViewBag.Title = "Coffee Factory";
+}
+<style>
+    .form-container {
+        width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+    body {
+        background-color: antiquewhite;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="container-fluid">
+        <div class="form-container">
+            <div class="text-center">
+
+                <form>
+
+                    <h1 class="h3 mb-3 fw-normal">Giriş Sayfası</h1>
+                    <br />
+
+                    <div class="form-floating">
+                        @Html.EditorFor(model => model.KullaniciAdi, new { htmlAttributes = new { @class = "form-control" } })
+                        <label for="floatingInput">Kullanıcı Adı</label>
+                    </div>
+             
+                    <div class="form-floating mt-2">
+                        @Html.EditorFor(model => model.Sifre, new { htmlAttributes = new { @class = "form-control" } })
+                        <label for="floatingPassword">Şifre</label>
+                    </div>
+
+                    <div class="checkbox mb-3 mt-2">
+                        <label>
+                            <input type="checkbox" value="remember-me"> Beni Hatırla
+                        </label>
+                    </div>
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">Giriş Yap</button>
+                    <p class="mt-5 mb-3 text-muted">© 2017–2023</p>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+}
+<script src="~/Scripts/jquery-3.7.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

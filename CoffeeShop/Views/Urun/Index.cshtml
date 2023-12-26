@@ -1,0 +1,105 @@
+﻿@model IEnumerable<CoffeeShop.Entity.Urun>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .table-container {
+        width: 80%;
+        margin: 20px auto;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+        }
+
+    .action-links {
+        display: flex;
+        justify-content: center;
+    }
+
+        .action-links a {
+            margin: 0 10px;
+        }
+</style>
+
+<div class="table-container">
+    <h1>Kahve Ürün Listesi</h1>
+
+    <p><i class="fa fa-plus" aria-hidden="true"></i>
+        @Html.ActionLink("Yeni Ürün Ekle", "Create", null, new { @class = "btn btn-primary" })
+    </p>
+
+    <table class="table">
+        <tr>
+            <th>
+                Kategori
+            </th>
+            <th>
+                Ürün Adı
+            </th>
+            <th>
+                Ürün Türü
+            </th>
+            
+            <th>
+                Ürün Fiyatı
+            </th>
+            <th>
+                Ürün Stok
+            </th>
+            <th>
+                Resim
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.kategori.kategoriName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.urunName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.urunType)
+                </td>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.urunFiyat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.urunStok)
+                </td>
+                <td>
+                  <img src="~/Upload/@item.Resim" width="70"/>
+                </td>
+                <td class="action-links">
+                    @Html.ActionLink("Düzenle", "Edit", new { id = item.urunId }, new { @class = "btn btn-primary" }) 
+                    @Html.ActionLink("Detaylar", "Details", new { id = item.urunId }, new { @class = "btn btn-info" }) 
+                    @Html.ActionLink("Sil", "Delete", new { id = item.urunId },  new { @class = "btn btn-danger", onclick = "return confirm('Silmek istediğinize emin misiniz?');" })
+                </td>
+            </tr>
+        }
+    </table>
+</div>

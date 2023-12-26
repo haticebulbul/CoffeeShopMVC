@@ -1,0 +1,40 @@
+﻿@using CoffeeShop.Entity
+@model Urun
+
+@{
+    ViewBag.Title = "Coffee Factory";
+}
+<style>
+    body {
+        background-color: antiquewhite
+    }
+</style>
+
+<div id="urun-detay" class="container">
+    <div class="row" style="align-items: center;">
+        <div class="col">
+            <img src="~/Upload/@Model.Resim"
+                 alt="" style="width:100%; height:auto;">
+        </div>
+        <div class="col" style="height:auto; width:100%; border:2px solid rgb(238, 237, 237); padding: 20px;">
+            <h1>@Model.urunName</h1>
+            <h5>@Model.urunType</h5>
+            <p>
+                @Model.urunAciklama
+            </p>
+
+            @using (Html.BeginForm("AddToCart", "Cart"))
+            {
+
+                @Html.HiddenFor(i => i.KategoriId)
+                @Html.HiddenFor(i => i.urunId)
+
+                    <input type="submit" class="btn btn-outline-secondary" value="Sepete Ekle"> 
+           
+
+            }
+
+
+        </div>
+    </div>
+</div>

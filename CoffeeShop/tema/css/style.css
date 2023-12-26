@@ -1,0 +1,130 @@
+
+
+
+
+/*element.style {
+}
+
+.py-3 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+.align-items-center {
+    align-items: center !important;
+}
+
+.justify-content-center {
+    justify-content: center !important;
+}
+
+.flex-wrap {
+    flex-wrap: wrap !important;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #dee2e6 !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+user agent stylesheet
+header {
+    display: block;
+}*/
+
+/** {
+    margin: 0;
+    padding: 0;
+    font-family: 'PT Sans', sans-serif;
+    font-family: 'Sarabun', sans-serif;
+}
+
+h2 {
+    color: #fff;
+    font-size: 50px;
+    text-align: center;
+}
+
+p {
+    color: rgb(205, 184, 184);
+    font-size: 20px;
+    line-height: 23px;
+}
+.card-title{
+    font-size:16px;
+    font-weight:400;
+    color:#484848;
+    line-height:1.35em;
+    height:34px;
+}
+.card-text {
+    font-size:12px;
+}
+.description{
+    font-size:12px;
+    height:40px;
+}
+.urun-detay h1{
+    background-color:antiquewhite;
+    
+}
+
+.col-6 img {
+    padding: 40px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.row h1,
+h3,
+p {
+    text-align: left;
+    padding: 5px;
+}*/
+/*
+.features {
+    align-items: center;
+    background-color: antiquewhite;
+}
+*/
+
+/*.container {
+    display: flex;
+    
+}*/
+/*
+.features .card {
+    width: 20%;
+    height: 20vh;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    margin-right: 70px;
+}
+
+.features h4,
+h1 {
+    align-items: center;
+    text-align: center;
+}
+
+.features {
+    padding: 50px;
+    align-items: center;
+    text-align: center;
+}
+
+*/
